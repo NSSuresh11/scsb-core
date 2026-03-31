@@ -96,7 +96,8 @@ public class AccessionService {
         List<AccessionRequest> trimmedAccessionRequests = new ArrayList<>();
         for (AccessionRequest accessionRequest : accessionRequestList) {
             AccessionRequest request = new AccessionRequest();
-            request.setItemBarcode(accessionRequest.getItemBarcode().trim());
+//            request.setItemBarcode(accessionRequest.getItemBarcode().trim());
+            request.setItemBarcode(accessionRequest.getItemBarcode());
             request.setCustomerCode(accessionRequest.getCustomerCode().trim().toUpperCase());
             trimmedAccessionRequests.add(request);
         }
