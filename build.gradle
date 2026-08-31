@@ -39,7 +39,7 @@ repositories {
 
 
 dependencies {
-	implementation fileTree(dir: '/data/commonjar', include: '*3.1.jar')
+	implementation fileTree(dir: '/data/commonjar', include: '*3.1.1.jar')
 	implementation 'org.projectlombok:lombok:1.18.42'
 	annotationProcessor 'org.projectlombok:lombok:1.18.42'
 	testImplementation 'org.projectlombok:lombok:1.18.42'
