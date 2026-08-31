@@ -72,6 +72,10 @@ dependencies {
 	implementation('org.apache.camel:camel-zip-deflater:4.15.0')
     implementation('org.apache.commons:commons-text:1.14.0')
 	implementation 'io.zipkin.brave:brave:6.3.0'
+    implementation('org.apache.tomcat.embed:tomcat-embed-core:11.0.25')
+    implementation('org.apache.tomcat.embed:tomcat-embed-el:11.0.25')
+    implementation('org.apache.tomcat.embed:tomcat-embed-websocket:11.0.25')
+    implementation('org.apache.tomcat:tomcat-annotations-api:11.0.25')
 
     implementation('org.apache.poi:poi-ooxml:5.5.0');
 	implementation 'io.micrometer:micrometer-registry-prometheus'
