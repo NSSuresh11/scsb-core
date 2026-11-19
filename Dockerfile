@@ -17,13 +17,3 @@ RUN mkdir /temp
 RUN chmod 777 /temp/
 
 ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
-
-WORKDIR /temp/
-#VOLUME /data/tst-cert/ /temp/
-RUN keytool -importcert -noprompt -trustcacerts -cacerts \
-      -alias ssl-com-tls-rsa-root-2022 \
-      -file /recap-vol/tst-cert/ssl-com-root-2022.pem \
-      -storepass changeit \
-&& rm /recap-vol/tst-cert/ssl-com-root-2022.pem
-
-
