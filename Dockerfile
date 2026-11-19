@@ -14,9 +14,6 @@ COPY --from=builder application/scsb-core.jar/ ./
 #COPY /data/config/ssl-com-root-2022.pem /tmp/ssl-com-root-2022.pem
 VOLUME /data/config/ssl-com-root-2022.pem:/tmp/ssl-com-root-2022.pem
 
-RUN keytool -importcert -noprompt -trustcacerts -cacerts \
-      -alias ssl-com-tls-rsa-root-2022 \
-      -file /tmp/ssl-com-root-2022.pem \
-      -storepass changeit \
+RUN keytool -importcert -noprompt -trustcacerts -cacerts -alias ssl-com-tls-rsa-root-2022 -file /tmp/ssl-com-root-2022.pem -storepass changeit
 
 ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
