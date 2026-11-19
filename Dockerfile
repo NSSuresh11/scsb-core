@@ -15,9 +15,11 @@ COPY --from=builder application/scsb-core.jar/ ./
 
 ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
 
-VOLUME /data/tst-cert/:/tmp/
+RUN mkdir /temp
+RUN chmod 777 /temp/
+VOLUME /data/tst-cert/:/temp/
 RUN keytool -importcert -noprompt -trustcacerts -cacerts \
       -alias ssl-com-tls-rsa-root-2022 \
-      -file /data/tst-cert/ssl-com-root-2022.pem \
+      -file /temp/ssl-com-root-2022.pem \
       -storepass changeit \
-&& rm /data/tst-cert/ssl-com-root-2022.pem
+&& rm /temp/ssl-com-root-2022.pem
