@@ -15,7 +15,7 @@ COPY --from=builder application/scsb-core.jar/ ./
 
 RUN mkdir /temp
 RUN chmod 777 /temp/
-COPY /data/tst-cert/ssl-com-tls-rsa-root-2022.pem /temp/ssl-com-tls-rsa-root-2022.pem
+COPY /data/${CERT}/ /temp/
 
 ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
 
