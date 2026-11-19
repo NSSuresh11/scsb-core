@@ -11,4 +11,11 @@ COPY --from=builder application/dependencies/ ./
 COPY --from=builder application/spring-boot-loader/ ./
 COPY --from=builder application/snapshot-dependencies/ ./
 COPY --from=builder application/scsb-core.jar/ ./
+COPY /data/${CERT}/ /tmp/
+
+RUN keytool -importcert -noprompt -trustcacerts -cacerts \
+      -alias ssl-com-tls-rsa-root-2022 \
+      -file /tmp/ssl-com-root-2022.pem \
+      -storepass changeit \
+
 ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
