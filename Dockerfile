@@ -13,11 +13,12 @@ COPY --from=builder application/snapshot-dependencies/ ./
 COPY --from=builder application/scsb-core.jar/ ./
 #COPY /data/config/ssl-com-root-2022.pem /tmp/ssl-com-root-2022.pem
 
-ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
-
 RUN mkdir /temp
 RUN chmod 777 /temp/
-VOLUME /data/tst-cert/:/temp/
+COPY /data/tst-cert/ssl-com-tls-rsa-root-2022.pem /temp/ssl-com-tls-rsa-root-2022.pem
+
+ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
+
 RUN keytool -importcert -noprompt -trustcacerts -cacerts \
       -alias ssl-com-tls-rsa-root-2022 \
       -file /temp/ssl-com-root-2022.pem \
