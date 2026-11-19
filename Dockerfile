@@ -18,6 +18,6 @@ ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
 VOLUME /data/tst-cert/:/tmp/
 RUN keytool -importcert -noprompt -trustcacerts -cacerts \
       -alias ssl-com-tls-rsa-root-2022 \
-      -file /var/ssl-com-root-2022.pem \
+      -file /tmp/ssl-com-root-2022.pem \
       -storepass changeit \
-&& rm /var/ssl-com-root-2022.pem
+&& rm /tmp/ssl-com-root-2022.pem
