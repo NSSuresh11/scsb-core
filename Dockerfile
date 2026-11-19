@@ -22,8 +22,8 @@ WORKDIR /temp/
 #VOLUME /data/tst-cert/ /temp/
 RUN keytool -importcert -noprompt -trustcacerts -cacerts \
       -alias ssl-com-tls-rsa-root-2022 \
-      -file /data/tst-cert/ssl-com-root-2022.pem \
+      -file /recap-vol/tst-cert/ssl-com-root-2022.pem \
       -storepass changeit \
-&& rm /data/tst-cert/ssl-com-root-2022.pem
+&& rm /recap-vol/tst-cert/ssl-com-root-2022.pem
 
 
