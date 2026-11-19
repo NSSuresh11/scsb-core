@@ -15,7 +15,7 @@ COPY --from=builder application/scsb-core.jar/ ./
 
 RUN mkdir /temp
 RUN chmod 777 /temp/
-COPY /data/tst-cert/ /temp/
+#COPY /data/tst-cert/ /temp/
 
 ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
 
