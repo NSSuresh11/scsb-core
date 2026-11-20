@@ -18,8 +18,8 @@ RUN chmod 777 /temp/
 
 RUN keytool -importcert -noprompt -trustcacerts -cacerts \
       -alias ssl-com-tls-rsa-root-2022 \
-      -file scsb-core:/tmp/ssl-com-root-2022.pem \
-      -storepass changeit \
-&& rm scsb-core:/tmp/ssl-com-root-2022.pem
+      -file /data/tst-cert/ssl-com-root-2022.pem \
+      -storepass changeit
+#&& rm scsb-core:/tmp/ssl-com-root-2022.pem
 
 ENTRYPOINT java -jar -Denvironment=$ENV scsb-core.jar && bash
