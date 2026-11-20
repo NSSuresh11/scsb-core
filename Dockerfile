@@ -18,7 +18,7 @@ RUN chmod 777 /temp/
 
 RUN keytool -importcert -noprompt -trustcacerts -cacerts \
       -alias ssl-com-tls-rsa-root-2022 \
-      -file resources/ssl-com-root-2022.pem \
+      -file application/resources/ssl-com-root-2022.pem \
       -storepass changeit
 #&& rm scsb-core:/tmp/ssl-com-root-2022.pem
 
